@@ -1,0 +1,135 @@
+<%- include("partials/header.ejs") %> 
+
+    <main>
+        <section class="showcase">
+            <div class="row container">
+                <div class="col-lg-6">
+                    <h4 class="font-weight-bold black-text text-darken-4">Welcome To Your One Stop Project Topic Box</h4>
+                    <small class="tag">Project Topics Out of the Box</small>
+                    <p class="text-muted teal lighten-5 p-2 rounded ">The purpose of ProTeck is to help student from all faculties in any institution to find suitable project Report / Topics / softwares for Their Final Year Project Work</p>
+                    <div class="find-faulty">
+                        <!-- Dropdown Trigger -->
+                        <a class="dropdown-trigger btn teal darken-3 btn-block" href="#!" data-target="dropdownFaulty">Select Faculty<i class="ml-lg-2 pt-1 bi bi-chevron-down small"></i></a>
+                        
+                        <!-- Dropdown Structure -->
+                        <ul id="dropdownFaulty" class="dropdown-content">
+                            <% if(faulties.length > 0){ %>
+                                <% faulties.map(faulty =>{ %> 
+                                    <li value=""><a href="/faulty/<%= faulty.slug %>"><%= faulty.name %></a></li>
+                                <% }) %> 
+                            <% }else{ %> 
+                                <li>No Faculty Available</li>
+                            <% } %>                   
+                        </ul>
+                    </div>
+                    <p class="teal-text text-darken-4"><i class="bi bi-exclamation-octagon-fill mr-1"></i>Find Your preferred Faculty Project Topic</p>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="sliderShow hide-on-small-and-down">                        
+                        <div class="slider">
+                            <ul class="slides">
+                                <li>
+                                    <img src="/img/slide.jpg"> <!-- random image -->
+                                    <div class="caption center-align">
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/img/slide1.jpg"> <!-- random image -->
+                                    <div class="caption left-align">
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/img/slide2.jpg"> <!-- random image -->
+                                    <div class="caption right-align">
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/img/slide3.jpg"> <!-- random image -->
+                                    <div class="caption center-align">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <form action="/project/projects" method="GET" class="d-flex">
+                    <input type="search" name="search" id="" placeholder="Search Any Project Topic">
+                    <button class="btn btn-small teal darken-4">Search</button>
+                </form>
+            </div>
+        </section><br/>
+
+        <section class="service scrollspy" id="service">
+            <h3 class="text-center font-weight-bolder mb-5">Our <span class="teal lighten-5 rounded p-2">Services</span></h3>
+            <div class="row container">
+                <div class="col-lg-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-search"></i>
+                            <p class="font-weight-bolder">FIND PROJECT TOPICS</p>
+                            <p>All project report available for you to surf through</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-journal-bookmark-fill"></i>
+                            <p class="font-weight-bolder">UPDATED JOURNALS</p>
+                            <p>Get all updated project report at the tip of your finger</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-lightning-fill"></i>
+                            <p class="font-weight-bolder">FAST RECEIVER</p>
+                            <p>Fast and Easy transaction of project reports anytime, anywhere</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><br/>
+
+        <section class="contact scrollspy" id="contact">
+            <h3 class="font-weight-bold text-center mb-5"><span class="text-center teal lighten-5 p-2 rounded">Contact</span></h3>
+            <div class="row container shadow p-0">
+                <div class="col-lg-6 contact-img p-0 hide-on-small-and-down">
+                    <img src="/img/contact1.jpg" alt="" class="img-fluid h-auto">
+                </div>
+    
+                <div class="col-lg-6 contact-form">
+                    <form action="/">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="" id="" placeholder="Name (John Doe)">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="" id="" placeholder="Email (johndoe@gmail.com)">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="" id="" placeholder="Message" cols="30" rows="19" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn w-100 teal darken-3 mb-1">Send</button>
+                    </form>
+                </div>
+    
+            </div>        
+        </section>
+
+
+        <!-- Whatsapp Floating Button -->                
+        <div class="fixed-action-btn">
+            <a href="https://wa.me/message/6YXGX6WYWYKIL1" class="btn-floating btn-large teal darken-4">
+                <i class="material-icons">local_phone</i>
+            </a>            
+        </div>
+
+    </main>
+    
+<%- include("partials/footer.ejs") %> 

@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: whitesmoke;
+}
+
+nav{
+    border-radius: unset;
+    background: white;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+nav .nav-wrapper .brand-logo{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav .nav-wrapper .logo{
+    color: #6249A5;
+    font-weight: bolder;
+}
+
+nav .nav-wrapper .right a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    transition: .0.9s ease-in;
+}
+nav .nav-wrapper .right a:hover{
+    color: #6249A5;
+}
+.sidenav{
+    
+}
+nav .sidenav a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    transition: .0.9s ease-in;
+}
+.nav-wrapper .bi-border-style{
+    color:#6249A5;
+}
+nav .sidenav a:hover{
+    color: #6249A5;
+}
+.nav-wrapper .right img, .sidenav img{
+    width: 30px;
+    height: 30px;
+    border-radius:50px;
+}
+
+
+/* Sidebar & Content Styles */
+.contents{
+    display: flex;
+    margin-top: 60px;
+}
+.contents .sidebar{
+    flex: 1;
+    height: calc(100vh - 50px);
+    background: rgb(251, 251, 255);
+    position:fixed;
+    top: 50px;  
+    
+}
+.sidebar-wrapper{
+    padding: 15px;
+    color: #555;
+}
+.sidebar-menu{
+    margin-bottom: 10px;
+}
+.sidebar-title{
+    font-size: 13px;
+    color: rgb(134, 133, 133)
+}
+.sidebar-list{
+    padding: 5px;
+}
+.sidebar-item{
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+.sidebar-item.active, .sidebar-item:hover{
+    background:rgb(240, 240, 255);
+}
+.sidebar .bi{
+    margin-right: 6px;
+}
+
+
+/* Content */
+.contents .content{
+    flex:4;
+    margin-left: 10rem;
+}
+.contents .content .price h4,
+.contents .content .price small{
+    font-weight: bold;
+}
+
+.user-stat .user-wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+.user-stat .user-wrapper:active,
+.user-stat .user-wrapper:hover{
+    background: whitesmoke;
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+}
+.user-stat .user-wrapper .user{
+    display: flex;
+    align-items: center;
+}
+.user-stat .user-wrapper .user{
+    flex: 3;
+}
+.user-stat .user-wrapper .user-visibility{
+    flex:1;
+}
+.user-stat .user-wrapper .user-visibility button{
+    color:#6249A5;
+    transition: 0.9s ease-out;
+}
+.user-stat .user-wrapper .user-visibility button:hover{
+    color: whitesmoke;
+    background-color: #6249A5;
+}
+.user-stat .user-wrapper .user .user-img img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.user-stat .user-wrapper .user .user-img{
+    
+}
+.user-stat .user-wrapper .user .user-details{
+    line-height: 10px;
+    margin-left: 8px;
+}
+
+.user-stat table img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+.user-stat table .rej{
+    color: whitesmoke;
+    background: red;
+    opacity:0.3;
+}
+.user-stat table .appr{
+    color: whitesmoke;
+    background: green;
+    opacity:0.3;
+}
+.user-stat table .pendg{
+    color: whitesmoke;
+    background: blue;
+    opacity: 0.3;
+}
+
+main .floating-btn{
+    z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 60px;
+    color: whitesmoke;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    display:none;
+}
+main .floating-btn i{
+    font-size: 20pt;
+    transition: 0.8s ease-out;
+}
+main .floating-btn i:active{
+    font-size: 23pt;
+
+}
+/* Media Queries */
+@media screen and (max-width: 600px){
+    .navbar-fixed{
+        z-index:unset;
+    }
+    .contents .sidebar{
+        height: 100vh;
+        overflow: scroll;
+    }
+    .contents .content{
+        margin-left: unset;
+    }
+    
+    .user-stat .user-wrapper{
+        overflow: scroll;
+    }
+   .contents .sidebar-visibility{
+       display: none;
+       transition: 0.5s ease-out;
+   }
+   main .floating-btn{
+       display: block;
+   }
+   .floating-btn2{
+       display: block;
+       z-index: 1000;
+       transition: 0.5s ease-in;
+   }
+}

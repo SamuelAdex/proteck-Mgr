@@ -1,0 +1,41 @@
+    <script src="/bootstrap/js/Jquery.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/materialize/js/materialize.min.js"></script>
+    <script src="/materialize/js/script.js"></script>
+    <script src="/materialize/tinymce/tinymce.min.js"></script>
+    <script>
+      //TINY MCE
+      tinymce.init({
+        selector: "textarea",
+        plugins: 'advlist autolink link codesample media lists legacyoutput image imagetools insertdatetime noneditable save preview print table tabfocus template spellchecker anchor code charmap contextmenu directionality emoticons hr help importcss nonbreaking pagebreak paste searchreplace textpattern toc visualchars wordcount fullpage fullscreen colorpicker autosave textcolor',        
+        codesample_languages:[
+          {text: 'HTML/XML', value: 'markup'},
+          {text: 'JAVASCRIPT', value: 'javascript'},
+          {text: 'CSS', value: 'css'},
+          {text: 'PHP', value: 'php'},
+          {text: 'Ruby', value: 'ruby'},
+          {text: 'Python', value: 'python'},
+          {text: 'Java', value: 'java'},
+          {text: 'C', value: 'c'},
+          {text: 'C#', value: 'csharp'},
+          {text: 'C++', value: 'cpp'}
+        ]
+      });
+   
+
+        /*const d = new Date() ;
+        document.getElementById("date").innerHTML = d.getFullYear();
+        console.log(d);*/
+
+        //Table Filters
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+            });
+        });
+    </script>
+</body>
+</html>

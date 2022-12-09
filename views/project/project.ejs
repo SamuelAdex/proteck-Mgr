@@ -1,0 +1,141 @@
+<%- include("../partials/header.ejs") %> 
+    <main class="container-sm">
+        <div class="projects container-fluid mt-lg-4">
+            <div class="find-faulty mt-lg-3">
+                <!-- Dropdown Trigger -->
+                <a class="dropdown-trigger btn teal darken-3" href="#!" data-target="dropdownFaulty">Select Faculty<i class="ml-lg-2 pt-1 bi bi-chevron-down small"></i></a>
+                
+                <!-- Dropdown Structure -->
+                <ul id="dropdownFaulty" class="dropdown-content">
+                    <% if(faulties.length > 0){ %>
+                        <% faulties.map(faulty =>{ %> 
+                            <li value=""><a href="/faulty/<%= faulty.slug %>"><%= faulty.name %></a></li>
+                        <% }) %> 
+                    <% }else{ %> 
+                        <li>No Faculty Available</li>
+                    <% } %>                   
+                </ul>
+            </div>
+            <p class="p"><i class="bi bi-exclamation-octagon-fill m-2"></i>All Project Topics from various faculties out of the box :)</p>
+
+            <div class="ads card">
+                <!-- Adsense Script -->
+                <% if(adsense.length > 0){ %> 
+                    <% adsense.map(ads =>{ %> 
+                        <%- ads.ads %> 
+                    <% }) %> 
+                <% } %> 
+                <!-- Adsense Script -->
+            </div>
+            <div class="row p-0">                
+                <div class="col-lg-9">
+                    <div class="project">
+                        <div class="row" id="project_wrapper">
+                            <% if(projects.length >0){ %> 
+                                <% projects.forEach(project =>{ %> 
+                                    <div class="col-lg-6">
+                                        <div class="card whitesmoke">
+                                            <div class="card-body">
+                                                <a href="/project/single_project/<%= project.slug %>" class="link teal-text text-darken-2"><h5 class="font-weight-bold"><%= project.topic %> </h5></a>
+                                                <small class="font-weight-bolder"><i class="bi bi-alarm"></i> <%= project.createdAt.toLocaleString() %> </small>
+                                                <div class="d-flex">
+                                                    <small class="badge"><%= project.faulty.name %> </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %> 
+                            <% }else{ %> 
+                                <div class="alert alert-warning">No Project Available Yet</div>
+                            <% } %> 
+                        </div>
+                        <!-- <center><a href="#!" id="more" class="btn teal darken-3">view more <i class="bi bi-chevron-up"></i></a></center> -->
+                        <!-- Pagination Logic -->
+                        <% if(pages > 0){ %> 
+                            <ul class="pagination center-align">
+                                <% if(current == 1){ %> 
+                                    <li class="disabled"><a href="#!"><i class="bi bi-chevron-left"></i></a></li>                             
+                                <% }else{ %> 
+                                    <li class="waves-effect"><a href="/project/projects/1"><i class="bi bi-chevron-left"></i></a></li>
+                                <% } %> 
+                                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %> 
+                                <% if(i !== 1){ %> 
+                                    <li class="disabled"><a href="#">..</a></li>      
+                                <% } %> 
+                                <% for(; i<= (Number(current) + 4) && i <= pages; i++){ %> 
+                                    <% if(i == current){ %> 
+                                        <li class="active teal darken-4"><a href="#"><%= i %></a></li>      
+                                    <% }else{ %> 
+                                        <li class="waves-effect"><a href="/project/projects/<%=i%>"><%= i %> </a></li>      
+                                    <% } %> 
+                                    <% if(i == Number(current) + 4 && i < pages){ %> 
+                                        <li class="disabled"><a href="#">...</a></li>      
+                                    <% } %> 
+                                <% } %> 
+                                <% if(current == pages){ %> 
+                                    <li class="disabled"><a href="#"><i class="bi bi-chevron-right"></i></a></li>      
+                                <% }else{ %> 
+                                    <li class="waves-effect"><a href="/project/projects/<%= pages %>"><i class="bi bi-chevron-right"></i></a></li>
+                                <% } %>
+                            </ul>
+                        <% } %>             
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/project/projects" method="GET">
+                                <p class="font-weight-bolder">SEARCH PROJECT TOPICS</p>
+                                <div class="form-group">
+                                    <input type="text" name="search" id="" value="" placeholder="Search Topics">
+                                </div>
+                                <button type="submit" class="btn btn-sm block teal darken-4 w-100">search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="ads card">
+                        <!-- Adsense Script -->
+                        <% if(adsense.length > 0){ %> 
+                            <% adsense.map(ads =>{ %> 
+                                <%- ads.ads %> 
+                            <% }) %> 
+                        <% } %> 
+                        <!-- Adsense Script -->
+                    </div>
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <p class="font-weight-bolder">All Faculties</p>
+                        </div>
+                        <div class="collection">
+                            <% if(faulties.length >0){ %> 
+                                <% faulties.map(faulty =>{ %>                                     
+                                    <a href="/faulty/<%= faulty.slug %> " class="collection-item"><span class="new badge teal darken-3"><%= faulty.projects.length %> </span><%= faulty.name %> </a>
+                                <% }) %> 
+                            <% }else{ %> 
+                                <div class="alert alert-warning">No Faculties Available Yet</div>
+                            <% } %> 
+                        </div>
+                    </div>
+                    <div class="ads card">
+                        <!-- Adsense Script -->
+                        <% if(adsense.length > 0){ %> 
+                            <% adsense.map(ads =>{ %> 
+                                <%- ads.ads %> 
+                            <% }) %> 
+                        <% } %> 
+                        <!-- Adsense Script -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Whatsapp Floating Button -->                
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large teal darken-4">
+                <i class="large bi bi-whatsapp"></i>
+            </a>            
+        </div>
+
+    </main>
+
+    <%- include("../partials/footer.ejs") %> 

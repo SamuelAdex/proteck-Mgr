@@ -1,0 +1,93 @@
+<%- include("../partials/header.ejs") %>
+
+<main class="container-sm row">        
+    <div class="col-lg-9">        
+        <div class="ads card col-lg-12 mt-lg-2 p-0">
+            <!-- Adsense Script -->
+            <% if(adsense.length > 0){ %> 
+                <% adsense.map(ads =>{ %> 
+                    <%- ads.ads %> 
+                <% }) %> 
+            <% } %> 
+            <!-- Adsense Script -->
+        </div>
+        <h4 class="font-weight-bold"><%= faulty.name %> Faculty</h4>
+        <div class="row">
+            <% if(faulty.projects.length >0){ %> 
+                <% faulty.projects.map(project =>{ %> 
+                    <div class="col-lg-6">
+                        <div class="card grey lighten-3">
+                            <div class="card-body">
+                                <a href="/project/single_project/<%= project.slug %>" class="link teal-text text-darken-2"><h5 class="font-weight-bold"><%= project.topic %> </h5></a>
+                                <small class="font-weight-bolder"><i class="bi bi-alarm"></i> <%= project.createdAt.toLocaleString() %> </small>
+                                <div class="d-flex">
+                                    <small class="badge"><%= project.faulty.name %> </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %> 
+            <% }else{ %> 
+                <div class="alert alert-warning">No Project Available Yet</div>
+            <% } %>           
+        </div>        
+    </div>
+
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <form action="/project/projects" method="GET">
+                    <p class="font-weight-bolder">SEARCH PROJECT TOPICS</p>
+                    <div class="form-group">
+                        <input type="search" name="search" id="" class="" placeholder="Search Topics">
+                    </div>
+                    <button type="submit" class="btn btn-sm block teal darken-4 w-100">search</button>
+                </form>
+            </div>
+        </div>
+        <div class="ads card">
+            <!-- Adsense Script -->
+            <% if(adsense.length > 0){ %> 
+                <% adsense.map(ads =>{ %> 
+                    <%- ads.ads %> 
+                <% }) %> 
+            <% } %> 
+            <!-- Adsense Script -->
+        </div>
+        <div class="card">
+            <div class="card-header p-2">
+                <p class="font-weight-bolder">All Faculties</p>
+            </div>
+            <div class="collection">
+                <% if(faulties.length >0){ %> 
+                    <% faulties.map(faulty =>{ %>                                     
+                        <a href="/faulty/<%= faulty.slug %> " class="collection-item"><span class="new badge teal darken-3"><%= faulty.projects.length %> </span><%= faulty.name %> </a>
+                    <% }) %> 
+                <% }else{ %> 
+                    <div class="alert alert-warning">No Faculties Available Yet</div>
+                <% } %> 
+            </div>
+        </div>
+        <div class="ads card">
+            <!-- Adsense Script -->
+            <% if(adsense.length > 0){ %> 
+                <% adsense.map(ads =>{ %> 
+                    <%- ads.ads %> 
+                <% }) %> 
+            <% } %> 
+            <!-- Adsense Script -->
+        </div>
+
+        <div class="ads card">
+            <!-- Adsense Script -->
+            <% if(adsense.length > 0){ %> 
+                <% adsense.map(ads =>{ %> 
+                    <%- ads.ads %> 
+                <% }) %> 
+            <% } %> 
+            <!-- Adsense Script -->
+        </div>
+    </div>
+</main>
+
+<%- include("../partials/footer.ejs") %>

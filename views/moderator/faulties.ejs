@@ -1,0 +1,84 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="container faulties mt-lg-4">
+    <h3 class="font-weight-bolder">MANAGE FACULTIES</h3>
+    <%- include('./partials/messages.ejs') %> 
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title font-weight-bolder p-lg-0">Create Faculty</div>
+                </div>
+                <div class="card-body">
+                    <form action="/faulty/addFaulty" method="POST">
+                        <div class="input-field">
+                            <input type="text" name="name" id="" required>
+                            <label for="name">Faculty</label>
+                        </div>
+                        <button type="submit" class="btn w-100 btn-small">create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card table-responsive">
+                <div class="p-3">
+                    <form action="">
+                        <input type="search" name="" id="myInput" placeholder="Search...">
+                    </form>
+                </div>
+                <table class="card-body table bordered">
+                    <thead>
+                        <tr>
+                            <th>Faculty</th>
+                            <th>CreatedAt</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <% faulties.map(faulty =>{ %> 
+                            <tr>
+                                <td><%= faulty.name %> </td>
+                                <td><%= faulty.createdAt.toLocaleString() %> </td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <a href="" class="text-info" data-toggle="modal" data-target="#FaultymodelId<%= faulty._id %> "><i class="bi bi-sliders"></i></a>                                 
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="FaultymodelId<%= faulty._id %>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                    <div class="modal-header">
+                                                            <h5 class="modal-title"><%= faulty.name %> </h5>
+                                                                <button type="button" class="close p-1" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                        </div>
+                                                <div class="modal-body">
+                                                    <form action="/faulty/updateFaulty/<%= faulty._id %>?_method=PUT" method="POST">
+                                                        <input type="text" name="name" value="<%= faulty.name %> " id="">
+                                                        <button type="submit" class="btn btn-block">Update</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                   
+                                    
+                                </td>                                
+                                <td>
+                                    <form action="/faulty/deleteFaulty/<%=faulty._id%>?_method=DELETE" method="POST">
+                                        <button type="submit" class="bg-light"><i class="text-danger bi bi-trash"></i></button>
+                                    </form>                                    
+                                </td>                                
+                            </tr>
+                        <% }) %> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./edit_profile.ejs') %>
+
+<%- include('./partials/footer.ejs') %>

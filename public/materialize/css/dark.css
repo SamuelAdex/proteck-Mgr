@@ -1,0 +1,151 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box
+}
+body{
+    background: #282A36;
+    transition: 0.9s;
+}
+
+header nav .brand-logo{
+    color: whitesmoke;
+    font-size: 14pt;
+    font-weight: bold;
+}
+header nav .brand-logo:hover{
+    text-decoration:none;
+}
+header nav{
+    background-color: unset;
+    box-shadow: none;
+}
+header nav .sidenav-trigger:hover{
+    text-decoration: none;
+    color: unset;
+}
+
+nav ul li a{
+    color:whitesmoke;
+    font-weight: 550;
+    font-family: fantasy;
+    transition: 0.9s;
+}
+.current{
+    color: #532a8d;
+}
+.sidenav a{
+    font-weight: 550;
+}
+nav ul li a:hover, .sidenav a:hover{
+    text-decoration: none;
+    color: #532a8d;
+}
+
+
+.showcase{
+    margin-top: 7rem;
+    align-items: center;
+}
+.showcase h1{
+    color:#532a8d;
+    font-weight: 700;
+    font-size: 40pt;
+}
+.showcase pre{
+    color: white;
+}
+.showcase p{
+    color: whitesmoke;
+    line-height: 3rem;
+}
+.showcase button{
+    border: none;
+    background:#452177;
+    color: whitesmoke;
+    font-weight: 550;
+    font-family: fantasy;
+    padding: 15px;
+    
+}
+.theme{
+    margin-top:20px;
+    display: inline-flex;
+}
+.theme .light{
+    padding: 15px;
+    background: white;
+    border-radius: 50px;
+    border: 2px solid #452177;
+    
+}
+.theme .dark{
+    padding: 15px;
+    background: #282A36;
+    border-radius: 50px;
+    border: 2px solid whitesmoke;
+}
+
+/* Blog Css */
+.blog-header{
+    padding: 40px;
+    color: whitesmoke;
+    border-bottom: 3px solid #452177;
+}
+.blog-header .theme .light{
+    
+}
+
+.ads .card{
+    padding: 15px;
+}
+/* Blog Css */
+
+.about{
+    background: #452177;
+    color: whitesmoke;
+    padding: 20px;
+}
+.about hr{
+    border: 1px solid whitesmoke;
+}
+.about .skills{
+    display: flex;
+    justify-content: space-between;
+    background:#532a8d;
+    padding: 12px;
+    border-radius: 15px;
+}
+
+.projects h3{
+    color: whitesmoke;
+    font-family: fantasy;
+}
+
+.contact h3{
+    color: whitesmoke;
+}
+.contact .card{
+    background: #333853;
+}
+.contact .card input{
+    color: whitesmoke;
+    font-size: 11pt;
+}
+.contact .card textarea{
+    background: #333853;
+    color: whitesmoke;
+    font-size: 11pt;
+}
+
+
+footer{
+    color: whitesmoke;
+    padding: 12px;
+}
+footer pre{
+    margin-bottom: -5px;
+    color: whitesmoke;
+    font-size: 11pt;
+    font-weight: 600;
+}

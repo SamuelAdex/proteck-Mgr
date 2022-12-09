@@ -1,0 +1,108 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="container projects mt-lg-5">
+    <h3 class="font-weight-bolder">MANAGE PROJECT</h3>
+    <%- include('./partials/messages.ejs') %>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title font-weight-bolder p-lg-0">
+                        Create New Project
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="/project/addProject" method="POST">
+                        <div class="form-group">
+                            <label for="topic">project Topic</label>
+                            <input type="text" name="topic" id="">
+                        </div>
+                        <div class="form-group">
+                            <select name="faulty" id="faulty">
+                                <option value="" selected>Select Faulty</option>
+                                <% if(faulties.length > 0){ %> 
+                                    <% faulties.map((faulty)=>{ %> 
+                                        <option value="<%= faulty._id %>"><%= faulty.name %> </option>
+                                    <% }) %> 
+                                <% }else{ %> 
+                                    <option selected disabled>No Faulty Available</option>
+                                <% } %> 
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="body" id="editor" cols="30" rows="20" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-small w-100">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">            
+            <div class="table-responsive card">
+                <form action="" class="p-3">
+                    <input type="search" name="search" id="myInput" placeholder="Search...">
+                </form>
+                <table class="table bordered card-body">
+                    <thead>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <% if(projects.length > 0){ %> 
+                            <% projects.map(project =>{ %> 
+                                <tr>
+                                    <td class=""><%= project.topic %> </td>
+                                    <td> 
+                                        <a href="/project/edit_project/<%= project._id %> " ><i class="bi bi-sliders text-info"></i></a>
+                                    </td>
+                                    <td>
+                                        <form action="/project/deleteProject/<%=project._id%>?_method=DELETE" method="POST">
+                                            <button type="submit" class="bg-white"><i class="bi bi-trash text-danger"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <% }) %> 
+                        <% }else{ %> 
+                            <div class="alert alert-info">⚠️ No Projects Available Yet</div>
+                        <% } %>                              
+                    </tbody>
+                </table>
+                <!-- Pagination Logic -->
+                <% if(pages > 0){ %> 
+                    <ul class="pagination center-align">
+                        <% if(current == 1){ %> 
+                            <li class="disabled"><a href="#!"><i class="bi bi-chevron-left"></i></a></li>                             
+                        <% }else{ %> 
+                            <li class="waves-effect"><a href="/user/projects/1"><i class="bi bi-chevron-left"></i></a></li>
+                        <% } %> 
+                        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %> 
+                        <% if(i !== 1){ %> 
+                            <li class="disabled"><a href="#">..</a></li>      
+                        <% } %> 
+                        <% for(; i<= (Number(current) + 4) && i <= pages; i++){ %> 
+                            <% if(i == current){ %> 
+                                <li class="active purple darken-4"><a href="#"><%= i %></a></li>      
+                            <% }else{ %> 
+                                <li class="waves-effect"><a href="/user/projects/<%=i%>"><%= i %> </a></li>      
+                            <% } %> 
+                            <% if(i == Number(current) + 4 && i < pages){ %> 
+                                <li class="disabled"><a href="#">...</a></li>      
+                            <% } %> 
+                        <% } %> 
+                        <% if(current == pages){ %> 
+                            <li class="disabled"><a href="#"><i class="bi bi-chevron-right"></i></a></li>      
+                        <% }else{ %> 
+                            <li class="waves-effect"><a href="/user/projects/<%= pages %>"><i class="bi bi-chevron-right"></i></a></li>
+                        <% } %>
+                    </ul>
+                <% } %>   
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./edit_profile.ejs') %>
+
+<%- include('./partials/footer.ejs') %>

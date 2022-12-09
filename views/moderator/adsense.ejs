@@ -1,0 +1,108 @@
+<%- include('./partials/header.ejs') %> 
+
+<div class="container mt-lg-4 adsense">
+    <h2 class="font-weight-bold"><i class="bi bi-nut white-text"></i> Google Adsense Setup</h2>
+    <%- include('./partials/messages.ejs')  %> 
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header p-lg-2">
+                            <div class="card-title font-weight-bold">Google Adsense Script</div>
+                            <small><i class="bi bi-exclamation-octagon-fill mr-1"></i>This should be inserted in the <code>head tag</code></small>
+                        </div>
+                        <div class="card-body">
+                            <form action="/adsense/googleAdsenseScript" method="POST">
+                                <div class="input-field">
+                                    <input type="text" name="googleAdsenseScript" id="" class="form-control">
+                                    <label for="google">Input Google Adsense Script</label>
+                                </div>
+                                <button class="btn btn-block ">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="table-responsive card">
+                        <table class="table bordered card-body">
+                            <thead>
+                                <tr>
+                                    <th>Script</th>
+                                    <th>CreatedAt</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% google.map(goo =>{ %> 
+                                    <tr>
+                                        <td><%= goo.script %> </td>
+                                        <td><%= goo.createdAt.toLocaleString() %> </td>
+                                        <td>
+                                            <form action="/adsense/deleteGoogleScript/<%= goo._id %>?_method=DELETE" method="POST">
+                                                <button type="submit" class="white"><i class="bi bi-trash red-text"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <% }) %> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header p-lg-2">
+                            <div class="card-title font-weight-bold">Adsense Script For All Pages</div>
+                            <small><i class="bi bi-exclamation-octagon-fill mr-2"></i>This should be inserted at the right section of your page</small>
+                        </div>
+                        <div class="card-body">
+                            <form action="/adsense/adsenseScript" method="POST">
+                                <div class="input-field">
+                                    <input type="text" name="adsenseScript" id="" class="form-control">
+                                    <label for="google">Input Adsense Script</label>
+                                    <!-- <textarea name="adsenseScript" id="editor1" cols="30" rows="10" class="form-control" placeholder="Input Adsense Script"></textarea> -->
+                                </div>
+                                <button class="btn btn-block ">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="table-responsive card">
+                        <table class="table bordered card-body">
+                            <thead>
+                                <tr>
+                                    <th>Script</th>
+                                    <th>CreatedAt</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if(adsense.length > 0){ %> 
+                                    <% adsense.map(ads =>{ %> 
+                                        <tr>
+                                            <td><%= ads.ads %> </td>
+                                            <td><%= ads.createdAt.toLocaleString() %> </td>
+                                            <td>
+                                                <form action="/adsense/deleteAdsenseScript/<%= ads._id %>?_method=DELETE" method="POST">
+                                                    <button type="submit" class="white"><i class="bi bi-trash red-text"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <%})%>
+                                <% } %> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./edit_profile.ejs') %>
+
+<%- include('./partials/footer.ejs') %> 

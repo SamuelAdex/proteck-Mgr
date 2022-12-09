@@ -1,0 +1,138 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box
+}
+body{
+    background: white;
+    transition: 0.9s;
+}
+header nav .brand-logo{
+    color: black;
+    font-size: 14pt;
+    font-weight: bold;
+}
+header nav .brand-logo:hover{
+    text-decoration:none;
+}
+header nav{
+    background-color: unset;
+    box-shadow: none;
+}
+header nav .material-icons{
+    color: #282A36;
+}
+header nav .sidenav-trigger:hover{
+    text-decoration: none;
+    color: unset;
+}
+
+nav ul li a{
+    color:black;
+    font-weight: 550;
+    font-family: fantasy;
+    transition: 0.9s;
+}
+.current{
+    color: #282A36;
+}
+.sidenav a{
+    font-weight: 700;
+}
+nav ul li a:hover, .sidenav a:hover{
+    text-decoration: none;
+    color: #282A36;
+}
+
+.showcase{
+    margin-top: 7rem;
+}
+.showcase h1{
+    color:#282A36;
+    font-weight: 700;
+    font-size: 40pt;
+}
+.showcase pre{
+    color:#282A36;
+}
+.showcase p{
+    line-height: 3rem;
+}
+.showcase button{
+    border: none;
+    background:#282A36;
+    color: whitesmoke;
+    font-weight: 550;
+    font-family: fantasy;
+    padding: 15px;    
+}
+.theme{
+    margin-top:20px;
+    display: inline-flex;
+}
+.theme .light{
+    padding: 15px;
+    background: white;
+    border-radius: 50px;
+    border: 2px solid #7745bd;    
+}
+.theme .dark{
+    padding: 15px;
+    background: #282A36;
+    border-radius: 50px;
+    border: 2px solid whitesmoke;
+}
+
+/* Blog Css */
+.blog-header{
+    padding: 40px;
+    border-bottom: 3px solid #282A36;
+}
+.blog-header .theme .light{
+    
+}
+
+.ads .card{
+    padding: 15px;
+}
+/* Blog Css */
+
+.about{
+    background: #282A36;
+    color: whitesmoke;
+    padding: 20px;
+}
+.about hr{
+    border: 1px solid whitesmoke;
+}
+.about .skills{
+    display: flex;
+    justify-content: space-between;
+    background: #333853;
+    padding: 12px;
+    border-radius: 15px;
+}
+
+.projects h3{
+    font-family: fantasy;
+    color: #282A36;
+}
+
+.contact h3{
+    color: #282A36;
+}
+.contact .card{
+    background:#282A36;
+}
+.contact .card textarea{
+    background:#282A36;
+}
+
+footer{
+    padding: 12px;
+}
+footer pre{
+    margin-bottom: -5px;
+    font-size: 11pt;
+    font-weight: 600;
+}

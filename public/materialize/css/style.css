@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #fff;
+    font-family: 
+}
+
+
+header nav{
+    background: #fff;
+}
+
+.nav-wrapper .brand-logo{
+    color: #000;
+    font-weight: bolder;
+    text-decoration: none;
+}
+.nav-wrapper .brand-logo span{
+    color: teal;
+}
+.nav-wrapper ul a{
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .8s ease-in;
+    font-size: 10pt;
+}
+.nav-wrapper ul a:hover{
+    color: teal;
+}
+.sidenav-trigger{
+    text-decoration: none;
+    color: #000;
+    transition: .8s ease-out;
+}
+.sidenav-trigger:hover{
+    color: teal;
+}
+.sidenav a{
+    text-decoration: none;
+    color: #000;
+    transition: .8s ease-in;
+    font-weight: bolder;
+}
+.sidenav a:hover{
+    color: teal;
+}
+
+/* Showcase Styling */
+main .showcase{   
+    color: white;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+main .showcase .tag{
+    color:teal;
+    font-weight: bold;
+}
+main .showcase .find-faulty form{
+    display: flex;
+    align-items: center;
+}
+
+/* Service Style */
+main .service .bi{
+    font-size: 40pt;
+    color: teal;
+    padding: 15px;
+    font-weight: bold;
+}
+
+
+
+/* Project Page Styles */
+main .projects .form-wrapper{
+    display: flex;
+    justify-content:;
+    align-items: center;
+    width: 100%;
+}
+main .projects form button{
+    width: 100px;
+}
+main .p{
+    border-bottom: 5px solid teal;
+    width: 100%;
+    padding: 10px;
+}
+main .project .card{
+    background: whitesmoke;
+}
+main .project .card .badge{
+    background: darkgoldenrod;
+    cursor: pointer;
+    padding:10px;
+    color: whitesmoke;
+}
+main .project .card .badge1{
+    background: teal;
+    cursor: pointer;
+    color: whitesmoke;
+    padding: 10px;
+    margin-left: 5px;
+}
+/* Project Page Styles */
+
+
+
+/* Single_Project Page Style */
+main .abstract, .table-of-content, .introduction, .background{
+    font-size: 15pt;
+}
+/* Single_Project Page Style */
+
+
+
+/* Payment Page Style */
+
+/* Payment Page Style */
+
+
+/* Footer & Copyright Styles */
+footer{
+    padding: 10px;
+}
+footer .container ul li a{
+    text-decoration: none;
+    color: #6C757D;
+    transition: .5s;
+}
+footer .container ul li a:hover{
+    color: teal;
+}
+.copyright{
+    padding: 20px;
+    background: whitesmoke;
+    color: teal;
+}
+.copyright .container{
+    line-height: 8px;
+}

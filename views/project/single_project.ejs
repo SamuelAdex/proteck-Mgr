@@ -1,0 +1,164 @@
+<%- include("../partials/header.ejs") %> 
+
+    <main>
+        <div class="row container-sm">
+            <div class="col-md-12">
+                <div class="ads card">
+                    <!-- Adsense Script -->
+                    <% if(adsense.length > 0){ %> 
+                        <% adsense.map(ads =>{ %> 
+                            <%- ads.ads %> 
+                        <% }) %> 
+                    <% } %> 
+                    <!-- Adsense Script -->
+                </div>
+            </div>
+            <div class="col-lg-9 single_project black-text text-darken-4">
+                <div class="project-wrapper">
+                    <h4 class="font-weight-bold"><%= project.topic %> </h4>        
+                    <div class="ads card">
+                        <!-- Adsense Script -->
+                        <% if(adsense.length > 0){ %> 
+                            <% adsense.map(ads =>{ %> 
+                                <%- ads.ads %> 
+                            <% }) %> 
+                        <% } %> 
+                        <!-- Adsense Script -->
+                    </div>         
+                    <div class="d-flex align-items-center">
+                        <h6 class="bi bi-person-circle teal-text text-darken-4"></h6>
+                        <small class="ml-2 mt-1 font-weight-bold"><%= author.user.username %></small>
+                    </div>
+                    <div class="d-flex">
+                        <small class="badge badge-warning mr-2 p-1"><%= project.faulty.name %> </small>
+                        <small class="bi bi-alarm"> <%= project.createdAt.toLocaleString() %> </small><br/>                        
+                    </div>
+
+                    <p><%- project.body %> </p>
+
+                    <!-- Payment modal -->                    
+                    <!-- Button trigger modal -->
+                    <a href="" class="white-text teal darken-4 text-darken-4 font-weight-bolder btn btn-small" data-toggle="modal" data-target="#modelId">
+                      GET FULL PROJECT MATERIAL FOR JUST #5000
+                    </a>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade p-0" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                        <div class="modal-dialog" role="document">         
+                            <div class="modal-header bg-light p-1">
+                                <button type="button" class="close right black-text" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button><br/><br/>
+                            </div>                   
+                            <!-- <div class="modal-content teal lighten-4">                                
+                                <div class="">
+                                    <div class="head">
+                                        <h5 class="modal-title font-weight-bolder">BANK TRANSFER</h5> 
+                                        <p>Make Payment for the Complete Project Material</p>
+                                    </div><hr>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid font-weight-bolder">
+                                        <p>1232504379</p>
+                                        <p>ACCESS BANK</p>
+                                        <p>SAMUEL OLALEYE</p>
+                                    </div>                                    
+                                </div>
+                            </div>
+
+                            <div class="modal-content mt-3 teal lighten-4">                                
+                                <div class="modal-header">
+                                    <div class="head text-center center">
+                                        <h5 class="modal-title font-weight-bolder">PAYPAL PAYMENT</h5> 
+                                        <p>Make Payment for the Complete Project Material</p>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="" class="btn btn-sm yellow darken-4 w-100" data-dismiss="modal">pay now</a>                                   
+                                </div>
+                            </div><hr/>   -->                          
+                            <ul class="font-weight-bolder teal-text text-darken-4 white p-3 rounded">
+                                <h6 class="font-weight-bold">Contact with the below</h6>
+                                <li>1.Send a whatsapp message to +234 813 5497 430</li>                                
+                                <li>2. With Project Topic</li><br/>
+                                OR
+                            </ul>                            
+                            <div class="white p-3 rounded">
+                                <span><i class="bi bi-exclamation-octagon-fill mr-3"></i>Send the details to</span><br/>
+                                <span><a href=""><i class="bi bi-envelope-fill mr-3"></i>adextechcorp@gmail.com</a><span>
+                            </div>
+                        </div>
+                    </div>                  
+
+                    <div class="ads card">
+                        <!-- Adsense Script -->
+                        <% if(adsense.length > 0){ %> 
+                            <% adsense.map(ads =>{ %> 
+                                <%- ads.ads %> 
+                            <% }) %> 
+                        <% } %> 
+                        <!-- Adsense Script -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/project/projects" method="GET">
+                            <p class="font-weight-bolder">SEARCH PROJECT TOPICS</p>
+                            <div class="form-group">
+                                <input type="search" name="search" id="" class="" placeholder="Search Topics">
+                            </div>
+                            <button type="submit" class="btn btn-sm block teal darken-4 w-100">search</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="ads card">
+                    <!-- Adsense Script -->
+                    <% if(adsense.length > 0){ %> 
+                        <% adsense.map(ads =>{ %> 
+                            <%- ads.ads %> 
+                        <% }) %> 
+                    <% } %> 
+                    <!-- Adsense Script -->
+                </div>
+
+                <div class="card">
+                    <div class="card-header p-2">
+                        <p class="font-weight-bolder">All Faculties</p>
+                    </div>
+                    <div class="collection">
+                        <% if(faulties.length >0){ %> 
+                            <% faulties.map(faulty =>{ %>                                     
+                                <a href="/faulty/<%= faulty.slug %> " class="collection-item"><span class="new badge teal darken-3"><%= faulty.projects.length %> </span><%= faulty.name %> </a>
+                            <% }) %> 
+                        <% }else{ %> 
+                            <div class="alert alert-warning">No Faculties Available Yet</div>
+                        <% } %> 
+                    </div>
+                </div>
+
+                <div class="ads card">
+                    <!-- Adsense Script -->
+                    <% if(adsense.length > 0){ %> 
+                        <% adsense.map(ads =>{ %> 
+                            <%- ads.ads %> 
+                        <% }) %> 
+                    <% } %> 
+                    <!-- Adsense Script -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Whatsapp Floating Button -->                
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large teal darken-4">
+                <i class="large bi bi-whatsapp"></i>
+            </a>            
+        </div>
+        
+
+    </main>
+
+<%- include("../partials/footer.ejs") %>

@@ -1,0 +1,156 @@
+<%- include('./partials/header.ejs') %> 
+
+    <main class="container mt-2">
+        <div class="stat">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title font-weight-bold text-muted">Users</div>
+                            <div class="d-flex">
+                                <i class="bi bi-person"></i>
+                                <h3><%= users.length %> </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title font-weight-bold text-muted">Faulties</div>
+                            <div class="d-flex">
+                                <i class="bi bi-pencil-square"></i>
+                                <h3><%= faulties.length %> </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title font-weight-bold text-muted">Projects</div>
+                            <div class="d-flex">
+                                <i class="bi bi-collection"></i>
+                                <h3><%= projects.length %> </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <%- include('./partials/messages.ejs') %>
+            </div>
+            
+            <div class="stat2">
+                <div class="row user-stat">
+                    <div class="col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title font-weight-bold">New Users</div>
+                                <% if(users.length > 0){ %> 
+                                    <% users.map(user =>{ %> 
+                                        <div class="user-wrapper">
+                                            <div class="user">
+                                                <div class="user-img">
+                                                    <i class="bi bi-person-circle"></i>
+                                                </div>
+                                                <div class="user-details">
+                                                    <p><%= user.username %> </p>
+                                                    <small class="text-muted"><%= user.role %> </small>
+                                                </div>
+        
+                                            </div>
+                                            <div class="user-visibility">
+                                                <button class="alert alert-sm wave-effect" data-toggle="modal" data-target="#ViewmodelId<%= user._id %> "><i class="bi bi-eye-fill mr-1"></i></button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="ViewmodelId<%= user._id %>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"><%= user.username  %> Profile</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                            <div class="modal-body">
+                                                                <div class="text-center">
+                                                                    <i class="bi bi-person-circle"></i>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="card">
+                                                                            <div class="card-header">
+                                                                                <%= user.username %> 
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="card">
+                                                                            <div class="card-header">
+                                                                                <%= user.role %> 
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <div class="card">
+                                                                            <div class="card-header">
+                                                                                <%= user.email %> 
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    <% }) %> 
+                                <% }else{ %> 
+                                    <div class="alert alert-danger">No User Available Yet</div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title font-weight-bold">My Projects</div>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th>Posts</th>
+                                                <th>Faulty</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% if(projects.length>0){ %> 
+                                                <% projects.map(project =>{ %> 
+                                                    <tr>
+                                                        <td>
+                                                            <%= project.topic %> 
+                                                        </td>
+                                                        <td><%= project.faulty.name %></td>
+                                                        <td><%= project.createdAt.toLocaleString() %> </td>
+                                                    </tr>
+                                                <% }) %> 
+                                            <% }else{ %> 
+                                                <tr>
+                                                    <div class="alert alert-warning">No Project Available Yet</div>
+                                                </tr>
+                                            <% } %>                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('./edit_profile.ejs') %>
+<%- include('./partials/footer.ejs') %> 

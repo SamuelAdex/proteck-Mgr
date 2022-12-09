@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #aeb1fa;
+}
+nav{
+    margin-top: 16px;
+    background: white;
+    border-radius: 15px;
+}
+nav .brand-logo{
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+nav .brand-logo span{
+    color: #6068FE;
+}
+nav .right a, nav .sidenav a,
+.sidenav a:hover{
+    color: #6068FE;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.5s ease-in;
+}
+nav .right a:hover{
+    color: black;
+}
+.nav-wrapper .right img, .sidenav img{
+    width: 30px;
+    height: 30px;
+    border-radius:40px;
+}
+nav .sidenav-trigger .bi{
+    color: #6068FE;
+    text-decoration: none
+}
+
+
+/* Main Styling */
+main .stat .d-flex{
+    justify-content: start;
+    align-items: center;
+}
+main .stat .card{
+    border-radius: 15px;
+}
+main .stat .d-flex i{
+    flex:1;
+    font-size:40pt;
+    color: #6068FE;
+}
+main .stat .d-flex h3{
+    font-weight: bolder;
+    font-size: 40pt;
+}
+
+/* User Stat Styling */
+.user-stat .user-wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+.user-stat .user-wrapper:active,
+.user-stat .user-wrapper:hover{
+    background: whitesmoke;
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+}
+.user-stat .user-wrapper .user{
+    display: flex;
+    align-items: center;
+}
+.user-stat .user-wrapper .user{
+    flex: 3;
+}
+.user-stat .user-wrapper .user-visibility{
+    flex:1;
+}
+.user-stat .user-wrapper .user-visibility button{
+    color:#6249A5;
+    transition: 0.9s ease-out;
+}
+.user-stat .user-wrapper .user-visibility button:hover{
+    color: whitesmoke;
+    background-color: #6249A5;
+}
+.user-wrapper .user-visibility .bi-person-circle{
+    font-size: 50pt;
+}
+.user-img .bi{
+    font-size: 30pt;
+    color: #6249A5;
+}
+.user-stat .user-wrapper .user .user-img img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.user-stat .user-wrapper .user .user-img{
+    
+}
+.user-stat .user-wrapper .user .user-details{
+    line-height: 10px;
+    margin-left: 8px;
+}
+
+.user-stat table img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+.user-stat table .rej{
+    color: whitesmoke;
+    background: red;
+    opacity:0.3;
+}
+.user-stat table .appr{
+    color: whitesmoke;
+    background: green;
+    opacity:0.3;
+}
+.user-stat table .pendg{
+    color: whitesmoke;
+    background: blue;
+    opacity: 0.3;
+}
+
+
+/* Post Styling */
+.post .d-flex .form-group{
+    
+}
+.post table img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+.post table .rej{
+    color: whitesmoke;
+    background: red;
+    opacity:0.3;
+}
+.post table .appr{
+    color: whitesmoke;
+    background: green;
+    opacity:0.3;
+}
+.post table .pendg{
+    color: whitesmoke;
+    background: blue;
+    opacity: 0.3;
+}
+
+
+
+/* Users Page Styles */
+.users .add-user-btn{
+    background-color: #6068FE;
+    color: #fff;
+    float: right;
+}
+.users .view .bi-person-circle{
+    font-size:50pt;
+}
+.users .modal .btn-add{
+    background-color: #6068FE;
+    color: #fff;
+}
+.users .search-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.users .search-wrapper form{
+    flex: 1;
+}
+.users .search-wrapper .add-btn{
+    flex: 2;
+}
+
+
+/* Projects Pge Styles */
+.projects button{
+    background-color: #6068FE;
+    color: #fff;
+}
+.projects button:hover{
+    background-color: #7980fa;
+    color: whitesmoke;
+}
+.projects .card-title{
+    color: #6068FE;
+}
+
+
+/* Faulties Page Styles */
+.faulties .card-title{
+    color: #6068FE;
+}
+.faulties button{
+    background-color: #6068FE;
+    color: #fff;
+}
+.faulties button:hover{
+    background-color: #7980fa;
+    color: whitesmoke;
+}
+
+
+/* Adsense Page Styles */
+.adsense button{
+    background-color: #6068FE;
+    color: #fff;
+}
+.adsense button:hover{
+    background-color: #7980fa;
+    color: whitesmoke;
+}

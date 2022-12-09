@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProTeck | Project Report For All Faulties</title>
+    <meta name="description" content="The purpose of ProTeck is to help student from all faulties in any institution to find suitable project Report / Topics for Their Final Year Project Work">    
+    <meta name="keywords" content="<% faulties.map(faulty =>{ %><%=faulty.name%>, <% }) %> ">
+    <meta name="author" content="Samuel Adex">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-icons.css">    
+    <link rel="stylesheet" href="/materialize/css/style.css">
+    <link rel="stylesheet" href="/materialize/css/materialize.min.css">
+
+    <!-- Google Adsense Script -->
+    <% if(google.length > 0){ %> 
+        <% google.map(goo =>{ %> 
+            <%- goo.script %> 
+        <% }) %> 
+    <% } %> 
+    <!-- Google Adsense Script -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper container-sm">
+              <a href="/" class="brand-logo"><span>Pro</span>Teck</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="bi bi-border-style"></i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="/">HOME</a></li>
+                <li><a href="/project/projects">PROJECT TOPICS</a></li>
+                <li><a href="/#service">SERVICE</a></li>
+                <li><a href="/#contact">CONTACT</a></li>
+                <% if(user){ %> 
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger btn teal lighten-5 teal-text" href="#!" data-target="dropdownUser"><%= user.username %></a></li>
+                        
+                    <!-- Dropdown Structure -->
+                    <ul id="dropdownUser" class="dropdown-content">
+                        <li value=""><a href="/user/dashboard">Dashboard</a></li>                
+                        <li value=""><a href="/user/logout">Logout</a></li>                
+                    </ul>
+                <% }else{ %> 
+                    <li><a href="/user/login" class="btn btn-small teal darken-4 text-white">LOGIN</a></li>
+                <% } %> 
+              </ul>
+            </div>
+        </nav>
+        
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/project/projects">PROJECT TOPICS</a></li>
+            <li><a href="/#service">SERVICE</a></li>
+            <li><a href="/#contact">CONTACT</a></li>
+            <% if(user){ %> 
+                <!-- Dropdown Trigger -->
+                <li><a class="dropdown-trigger btn teal lighten-5 teal-text" href="#!" data-target="dropdownUser1"><%= user.username %></a></li>
+                    
+                <!-- Dropdown Structure -->
+                <ul id="dropdownUser1" class="dropdown-content">
+                    <li value=""><a href="/user/dashboard">Dashboard</a></li>                
+                    <li value=""><a href="/user/logout">Logout</a></li>                
+                </ul>
+            <% }else{ %> 
+                <li><a href="/user/login" class="btn btn-small teal darken-4 text-white">LOGIN</a></li>
+            <% } %> 
+        </ul>
+    </header>
